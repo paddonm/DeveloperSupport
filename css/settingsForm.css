@@ -1,5 +1,8 @@
 #settings {
   margin: 50px auto;
+  max-width: 500px;
+  width: 100%;
+  padding: 0 15px;
 }
 
 #settings .renderField {
@@ -11,16 +14,25 @@
   font-weight: 500;
   margin: 5px;
   font-size: 1.3rem;
+  display: block;
 }
 
 #settings .renderField input {
-  width: 45px;
   padding: 5px;
   background-color: #ffffffd6;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 1.3rem;
+}
+
+#settings .renderField.duration input {
+  width: 45px;
   cursor: pointer;
+}
+                
+#settings .renderField.duration label,
+#settings .renderField.duration span {
+  display: inline-block;
 }
                 
 #settings .renderField textarea {

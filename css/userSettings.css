@@ -6,14 +6,14 @@
   padding: 0 5px;
   border-radius: 8px;
   right: 15px;
-  border: 1px solid #ddd;
-  margin: 10px auto;
+  margin: 10px 50px 10px auto;
   width: 250px;
+  cursor: default;
 }
 
 @media (min-width: 992px) {
   .userSettings {
-    margin: 10px 0 10px auto;
+    margin: 10px 65px 10px auto;
   }
 }
 
@@ -29,4 +29,15 @@
   margin: 0;
   color: rgb(99, 99, 99);
   font-weight: 500;
+}
+
+.userSettings i {
+  color: darkgray;
+  position: relative;
+  right: -65px;
+}
+
+.userSettings i:hover {
+  cursor: pointer;
+  color: rgb(19, 19, 19);
 }

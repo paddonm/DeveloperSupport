@@ -1,7 +1,8 @@
 const formFields = [
   {
-    name: 'email',
-    label: 'Email',
+    name:     'email',
+    label:    'Email',
+    type:     'email',
     required: true
   }
 ]
@@ -44,6 +45,7 @@ const buildCustomerField = (field) => {
   stringInput.setAttribute('placeholder', field.label);
   stringInput.setAttribute('name', field.name);
   stringInput.setAttribute('id', field.name);
+  stringInput.setAttribute('type', field.type);
   
   stringLabel.innerText = field.label;
 

@@ -108,6 +108,7 @@ const mountCustomer = () => {
   var elCustomer = document.getElementById("customer");
 
   elCustomer.addEventListener("getCustomer", function (e) {
+    console.log('gettingCustomer');
     updateAvailabilityParams('customerId', e.detail.id);
     mountAvailability();
     buildUserCard(e.detail);
