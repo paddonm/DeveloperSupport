@@ -110,6 +110,7 @@ const mountCustomer = () => {
   elCustomer.addEventListener("getCustomer", function (e) {
     updateAvailabilityParams('customerId', e.detail.id);
     mountAvailability();
+    buildUserCard(e.detail);
   });
   
   customer.mount('customer');

@@ -63,8 +63,8 @@ template('meetings-template', () => {
       resolve(elAppDiv.appendChild(availabilityDiv));
       resolve(elAppDiv.appendChild(customerDiv));
     }).then(() => {
+      updateCustomerEmail(window.localStorage.onschedBookingEmail);
       mountCustomer();
-      mountAvailability();
     })
   }
   else {

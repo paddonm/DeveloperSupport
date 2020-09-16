@@ -46,7 +46,7 @@ const buildCustomerField = (field) => {
   stringInput.setAttribute('id', field.name);
   
   stringLabel.innerText = field.label;
-  console.log('req', field.label, field.required)
+
   if (field.required)
     stringLabel.appendChild(elError);
 
