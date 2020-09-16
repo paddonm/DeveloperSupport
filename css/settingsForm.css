@@ -1,0 +1,30 @@
+#settings {
+  margin: 50px auto;
+}
+
+#settings .renderField {
+  margin: 15px auto;
+}
+
+#settings .renderField label,
+#settings .renderField span {
+  font-weight: 500;
+  margin: 5px;
+  font-size: 1.3rem;
+}
+
+#settings .renderField input {
+  width: 45px;
+  padding: 5px;
+  background-color: #ffffffd6;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+                
+#settings .renderField textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}

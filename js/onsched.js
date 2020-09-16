@@ -95,11 +95,37 @@ const mountResources = () => {
   resources.mount('resources');
 }
 
+// Customer element
+var customerParams = {};
+const updateCustomerEmail = (email) => {
+  customerParams.email = email;
+  window.localStorage.setItem('onschedBookingEmail', email);
+}
+
+const mountCustomer = () => {
+  var customerOptions = {};
+  var customer = elements.create("customer", customerParams, customerOptions);
+  var elCustomer = document.getElementById("customer");
+
+  elCustomer.addEventListener("getCustomer", function (e) {
+    updateAvailabilityParams('customerId', e.detail.id);
+    mountAvailability();
+  });
+  
+  customer.mount('customer');
+}
+
 const mountAvailability = () => {
-  var availabilityParams = { locationId: 'livedemo', serviceId: '1523', resourceId: '7351' };
+  const settings = buildAppointmentSettings();
+
   var availabilityOptions = {};
   var availability = elements.create("availability", availabilityParams, availabilityOptions);
-  // var elavailability = document.getElementById("availability");
+  var elAvailability = document.getElementById("availability");
 
-  availability.mount('availability')
+  elAvailability.addEventListener('bookingConfirmation', e => {
+    toggleToast('Appointment booked');
+  });
+
+  availability.mount('availability');
+  elAvailability.appendChild(settings)
 }

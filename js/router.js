@@ -3,6 +3,7 @@ const pages = {
   locations: 'locations',
   services: 'services',
   resources: 'resources',
+  customer: 'customer',
   availability: 'availability',
   confirmation: 'confirmation',
 }
@@ -37,14 +38,15 @@ let route = (path, template) => {
 // Register the templates.
 template('template1', () => {
   let elAppDiv = document.getElementById(appDiv);
-  let elLink1 = document.createElement('A');
   
-  elLink1.href = '#/meetings'
-  elLink1.innerText = 'Meetings'
-
+  const elForm = buildCustomerForm();
+  
   clearElement(elAppDiv);
-
-  elAppDiv.appendChild(elLink1);
+  
+  if (window.localStorage.onschedBookingEmail)
+    window.location.assign('#/meetings');
+  else
+    elAppDiv.appendChild(elForm);
 });
 
 template('meetings-template', () => {
@@ -52,11 +54,22 @@ template('meetings-template', () => {
   
   let availabilityDiv = document.createElement('DIV');
   availabilityDiv.setAttribute('id', 'availability');
+  let customerDiv = document.createElement('DIV');
+  customerDiv.setAttribute('id', 'customer');
 
   clearElement(elAppDiv);
-
-  elAppDiv.appendChild(availabilityDiv);
-  mountAvailability();
+  if (window.localStorage.onschedBookingEmail) {
+    new Promise((resolve, reject) => {
+      resolve(elAppDiv.appendChild(availabilityDiv));
+      resolve(elAppDiv.appendChild(customerDiv));
+    }).then(() => {
+      mountCustomer();
+      mountAvailability();
+    })
+  }
+  else {
+    window.location.assign('#/');
+  }
 });
 
 // Create template function
